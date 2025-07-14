@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blue Denim Jacket – Chlothzy</title>
+  <title>Chlothzy Product Card</title>
   <style>
     * {
       box-sizing: border-box;
@@ -20,9 +20,19 @@
 
     body {
       display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .main-container {
+      display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      position: relative;
+      flex: 1;
+      width: 100%;
+      padding: 20px;
     }
 
     .card {
@@ -31,8 +41,8 @@
       border-radius: 16px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       overflow: hidden;
+      max-width: 350px;
       width: 100%;
-      max-width: 360px;
       text-align: center;
       transition: transform 0.3s;
     }
@@ -48,7 +58,7 @@
       transform: scale(1.05);
     }
 
-    .info {
+    .card .info {
       padding: 20px;
     }
 
@@ -107,54 +117,32 @@
       padding: 8px;
       border-radius: 8px;
       cursor: pointer;
-      font-size: 18px;
     }
 
-    /* Portfolio Link on the Right Side */
-    .portfolio-box {
-      position: fixed;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: #f0f0f5;
-      padding: 16px 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      text-align: center;
-      width: 180px;
-    }
-
-    .portfolio-box h4 {
-      margin: 0 0 8px;
-      font-size: 1rem;
-      color: #222;
-    }
-
-    .portfolio-box a {
-      color: #0077cc;
-      font-weight: bold;
-      text-decoration: none;
-      display: inline-block;
-      padding: 8px 12px;
-      border: 1px solid #0077cc;
-      border-radius: 6px;
+    .portfolio-link {
       font-size: 0.85rem;
-      transition: all 0.3s;
+      color: #333;
+      text-align: center;
+      margin-bottom: 10px;
     }
 
-    .portfolio-box a:hover {
-      background-color: #0077cc;
-      color: white;
+    .portfolio-link a {
+      color: #0077cc;
+      text-decoration: none;
+      font-weight: 500;
     }
 
-    /* Dark Mode Styles */
+    .portfolio-link a:hover {
+      text-decoration: underline;
+    }
+
     .dark-mode {
       background-color: #1e1e1e;
       color: #f5f5f5;
     }
 
     .dark-mode .card {
-      background-color: #2a2a2a;
+      background: #2a2a2a;
       color: #f5f5f5;
     }
 
@@ -166,60 +154,33 @@
       background: #e91e63;
     }
 
-    .dark-mode .portfolio-box {
-      background-color: #333;
+    .dark-mode .portfolio-link {
+      color: #ccc;
     }
 
-    .dark-mode .portfolio-box h4 {
-      color: #eee;
-    }
-
-    .dark-mode .portfolio-box a {
+    .dark-mode .portfolio-link a {
       color: #90caf9;
-      border-color: #90caf9;
-    }
-
-    .dark-mode .portfolio-box a:hover {
-      background-color: #90caf9;
-      color: #000;
-    }
-
-    /* Responsive for mobile */
-    @media (max-width: 768px) {
-      .portfolio-box {
-        position: static;
-        transform: none;
-        margin-top: 20px;
-        width: 100%;
-        max-width: 300px;
-      }
-
-      body {
-        flex-direction: column;
-        padding: 20px;
-      }
     }
   </style>
 </head>
 <body>
   <button class="toggle-mode" onclick="toggleMode()">🌙</button>
 
-  <!-- Product Card in Center -->
-  <div class="card">
-    <span class="badge">20% OFF</span>
-    <img src="https://jimmyluxury.in/cdn/shop/files/IMG_9220copy_23de15c4-a9e4-421d-9c9a-24f7095afb36.webp?v=1749016548&width=1000" alt="Blue Denim Jacket" />
-    <div class="info">
-      <div class="product-name">Blue Denim Jacket</div>
-      <div class="price">₹1,499</div>
-      <button class="add-btn" onclick="addToCart()">Add to Cart</button>
-      <div class="cart-counter" id="cartCount">Added to cart: 0 times</div>
+  <div class="main-container">
+    <div class="card">
+      <span class="badge">20% OFF</span>
+      <img src="https://jimmyluxury.in/cdn/shop/files/IMG_9220copy_23de15c4-a9e4-421d-9c9a-24f7095afb36.webp?v=1749016548&width=1000" alt="Blue Denim Jacket" />
+      <div class="info">
+        <div class="product-name">Blue Denim Jacket</div>
+        <div class="price">₹1,499</div>
+        <button class="add-btn" onclick="addToCart()">Add to Cart</button>
+        <div class="cart-counter" id="cartCount">Added to cart: 0 times</div>
+      </div>
     </div>
   </div>
 
-  <!-- Portfolio on Right Side -->
-  <div class="portfolio-box">
-    <h4>My Portfolio</h4>
-    <a href="https://shivanshinfo.netlify.app/" target="_blank">View Website</a>
+  <div class="portfolio-link">
+    Check my portfolio: <a href="https://shivanshinfo.netlify.app/" target="_blank">shivanshinfo.netlify.app</a>
   </div>
 
   <script>
