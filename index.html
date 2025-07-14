@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chlothzy Product Card</title>
+  <title>Blue Denim Jacket – Chlothzy</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
+      padding: 0;
+      height: 100%;
       font-family: 'Segoe UI', sans-serif;
       background-color: #fdfdfd;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body {
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      transition: background 0.3s, color 0.3s;
-      padding: 20px;
+      position: relative;
     }
 
     .card {
@@ -25,8 +31,8 @@
       border-radius: 16px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       overflow: hidden;
-      max-width: 320px;
-      width: 90%;
+      width: 100%;
+      max-width: 360px;
       text-align: center;
       transition: transform 0.3s;
     }
@@ -34,6 +40,7 @@
     .card img {
       width: 100%;
       height: auto;
+      object-fit: cover;
       transition: transform 0.3s;
     }
 
@@ -41,7 +48,7 @@
       transform: scale(1.05);
     }
 
-    .card .info {
+    .info {
       padding: 20px;
     }
 
@@ -66,6 +73,8 @@
       border-radius: 8px;
       cursor: pointer;
       transition: background 0.3s;
+      width: 100%;
+      max-width: 200px;
     }
 
     .add-btn:hover {
@@ -90,7 +99,7 @@
     }
 
     .toggle-mode {
-      position: absolute;
+      position: fixed;
       top: 15px;
       right: 15px;
       background: #00000010;
@@ -98,15 +107,54 @@
       padding: 8px;
       border-radius: 8px;
       cursor: pointer;
+      font-size: 18px;
     }
 
+    /* Portfolio Link on the Right Side */
+    .portfolio-box {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #f0f0f5;
+      padding: 16px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      width: 180px;
+    }
+
+    .portfolio-box h4 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      color: #222;
+    }
+
+    .portfolio-box a {
+      color: #0077cc;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      padding: 8px 12px;
+      border: 1px solid #0077cc;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      transition: all 0.3s;
+    }
+
+    .portfolio-box a:hover {
+      background-color: #0077cc;
+      color: white;
+    }
+
+    /* Dark Mode Styles */
     .dark-mode {
       background-color: #1e1e1e;
       color: #f5f5f5;
     }
 
     .dark-mode .card {
-      background: #2a2a2a;
+      background-color: #2a2a2a;
       color: #f5f5f5;
     }
 
@@ -118,41 +166,48 @@
       background: #e91e63;
     }
 
-    .portfolio-link {
-      margin-top: 30px;
-      text-align: center;
-      font-size: 1rem;
-      color: #333;
+    .dark-mode .portfolio-box {
+      background-color: #333;
     }
 
-    .portfolio-link a {
-      color: #0077cc;
-      text-decoration: none;
-      font-weight: bold;
+    .dark-mode .portfolio-box h4 {
+      color: #eee;
     }
 
-    .portfolio-link a:hover {
-      text-decoration: underline;
-    }
-
-    .dark-mode .portfolio-link {
-      color: #ccc;
-    }
-
-    .dark-mode .portfolio-link a {
+    .dark-mode .portfolio-box a {
       color: #90caf9;
+      border-color: #90caf9;
+    }
+
+    .dark-mode .portfolio-box a:hover {
+      background-color: #90caf9;
+      color: #000;
+    }
+
+    /* Responsive for mobile */
+    @media (max-width: 768px) {
+      .portfolio-box {
+        position: static;
+        transform: none;
+        margin-top: 20px;
+        width: 100%;
+        max-width: 300px;
+      }
+
+      body {
+        flex-direction: column;
+        padding: 20px;
+      }
     }
   </style>
 </head>
-
 <body>
   <button class="toggle-mode" onclick="toggleMode()">🌙</button>
 
+  <!-- Product Card in Center -->
   <div class="card">
     <span class="badge">20% OFF</span>
-    <img
-      src="https://jimmyluxury.in/cdn/shop/files/IMG_9220copy_23de15c4-a9e4-421d-9c9a-24f7095afb36.webp?v=1749016548&width=1000"
-      alt="Blue Denim Jacket" />
+    <img src="https://jimmyluxury.in/cdn/shop/files/IMG_9220copy_23de15c4-a9e4-421d-9c9a-24f7095afb36.webp?v=1749016548&width=1000" alt="Blue Denim Jacket" />
     <div class="info">
       <div class="product-name">Blue Denim Jacket</div>
       <div class="price">₹1,499</div>
@@ -161,13 +216,10 @@
     </div>
   </div>
 
-  <div class="portfolio-link">
-    <p>
-      Check my portfolio page: 
-      <a href="https://shivanshinfo.netlify.app/" target="_blank">
-        Click here to view my portfolio
-      </a>
-    </p>
+  <!-- Portfolio on Right Side -->
+  <div class="portfolio-box">
+    <h4>My Portfolio</h4>
+    <a href="https://shivanshinfo.netlify.app/" target="_blank">View Website</a>
   </div>
 
   <script>
@@ -184,5 +236,4 @@
     }
   </script>
 </body>
-
 </html>
