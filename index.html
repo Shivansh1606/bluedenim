@@ -2,153 +2,187 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chlothzy Product Card</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #fdfdfd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            transition: background 0.3s, color 0.3s;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chlothzy Product Card</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdfdfd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      transition: background 0.3s, color 0.3s;
+      padding: 20px;
+    }
 
-        .card {
-            position: relative;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            max-width: 320px;
-            width: 90%;
-            text-align: center;
-            transition: transform 0.3s;
-        }
+    .card {
+      position: relative;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      max-width: 320px;
+      width: 90%;
+      text-align: center;
+      transition: transform 0.3s;
+    }
 
-        .card img {
-            width: 100%;
-            height: auto;
-            transition: transform 0.3s;
-        }
+    .card img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s;
+    }
 
-        .card:hover img {
-            transform: scale(1.05);
-        }
+    .card:hover img {
+      transform: scale(1.05);
+    }
 
-        .card .info {
-            padding: 20px;
-        }
+    .card .info {
+      padding: 20px;
+    }
 
-        .product-name {
-            font-size: 1.4rem;
-            margin: 10px 0;
-            font-weight: 600;
-        }
+    .product-name {
+      font-size: 1.4rem;
+      margin: 10px 0;
+      font-weight: 600;
+    }
 
-        .price {
-            color: #e91e63;
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-        }
+    .price {
+      color: #e91e63;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
 
-        .add-btn {
-            background: #e91e63;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            font-size: 1rem;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
+    .add-btn {
+      background: #e91e63;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
 
-        .add-btn:hover {
-            background: #c2185b;
-        }
+    .add-btn:hover {
+      background: #c2185b;
+    }
 
-        .badge {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: #ff5722;
-            color: white;
-            padding: 6px 10px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            border-radius: 0 8px 8px 0;
-        }
+    .badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: #ff5722;
+      color: white;
+      padding: 6px 10px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      border-radius: 0 8px 8px 0;
+    }
 
-        .cart-counter {
-            margin-top: 15px;
-            font-weight: bold;
-        }
+    .cart-counter {
+      margin-top: 15px;
+      font-weight: bold;
+    }
 
-        .toggle-mode {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #00000010;
-            border: none;
-            padding: 8px;
-            border-radius: 8px;
-            cursor: pointer;
-        }
+    .toggle-mode {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #00000010;
+      border: none;
+      padding: 8px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
 
-        .dark-mode {
-            background-color: #1e1e1e;
-            color: #f5f5f5;
-        }
+    .dark-mode {
+      background-color: #1e1e1e;
+      color: #f5f5f5;
+    }
 
-        .dark-mode .card {
-            background: #2a2a2a;
-            color: #f5f5f5;
-        }
+    .dark-mode .card {
+      background: #2a2a2a;
+      color: #f5f5f5;
+    }
 
-        .dark-mode .add-btn {
-            background: #f06292;
-        }
+    .dark-mode .add-btn {
+      background: #f06292;
+    }
 
-        .dark-mode .add-btn:hover {
-            background: #e91e63;
-        }
-    </style>
+    .dark-mode .add-btn:hover {
+      background: #e91e63;
+    }
+
+    .portfolio-link {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .portfolio-link a {
+      color: #0077cc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .portfolio-link a:hover {
+      text-decoration: underline;
+    }
+
+    .dark-mode .portfolio-link {
+      color: #ccc;
+    }
+
+    .dark-mode .portfolio-link a {
+      color: #90caf9;
+    }
+  </style>
 </head>
 
 <body>
-    <button class="toggle-mode" onclick="toggleMode()">🌙</button>
+  <button class="toggle-mode" onclick="toggleMode()">🌙</button>
 
-    <div class="card">
-        <span class="badge">20% OFF</span>
-        <img src="https://jimmyluxury.in/cdn/shop/files/IMG_9220copy_23de15c4-a9e4-421d-9c9a-24f7095afb36.webp?v=1749016548&width=1000"
-            alt="Blue Denim Jacket" />
-        <div class="info">
-            <div class="product-name">Blue Denim Jacket</div>
-            <div class="price">₹1,499</div>
-            <button class="add-btn" onclick="addToCart()">Add to Cart</button>
-            <div class="cart-counter" id="cartCount">Added to cart: 0 times</div>
-        </div>
+  <div class="card">
+    <span class="badge">20% OFF</span>
+    <img
+      src="https://jimmyluxury.in/cdn/shop/files/IMG_9220copy_23de15c4-a9e4-421d-9c9a-24f7095afb36.webp?v=1749016548&width=1000"
+      alt="Blue Denim Jacket" />
+    <div class="info">
+      <div class="product-name">Blue Denim Jacket</div>
+      <div class="price">₹1,499</div>
+      <button class="add-btn" onclick="addToCart()">Add to Cart</button>
+      <div class="cart-counter" id="cartCount">Added to cart: 0 times</div>
     </div>
-<pre>Check My Portfolio page 
- <a href="https://shivanshinfo.netlify.app/" target="_blank">Click here to view my portfolio</a>
-</pre>
+  </div>
 
-    <script>
-        let count = 0;
+  <div class="portfolio-link">
+    <p>
+      Check my portfolio page: 
+      <a href="https://shivanshinfo.netlify.app/" target="_blank">
+        Click here to view my portfolio
+      </a>
+    </p>
+  </div>
 
-        function addToCart() {
-            count++;
-            alert("Blue Denim Jacket added to cart!");
-            document.getElementById("cartCount").textContent = `Added to cart: ${count} times`;
-        }
+  <script>
+    let count = 0;
 
-        function toggleMode() {
-            document.body.classList.toggle("dark-mode");
-        }
-    </script>
+    function addToCart() {
+      count++;
+      alert("Blue Denim Jacket added to cart!");
+      document.getElementById("cartCount").textContent = `Added to cart: ${count} times`;
+    }
+
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
 </body>
 
 </html>
